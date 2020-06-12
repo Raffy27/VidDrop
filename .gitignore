@@ -102,3 +102,9 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Hey, don't touch my db!
+db/viddrop.db.bak
+
+# No certs for u
+sslcert/

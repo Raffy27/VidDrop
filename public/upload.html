@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <title>VidDrop</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#0050a6">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        <script src="js/jquery-progress-upload.js"></script>
+        <script src="js/valid1.js"></script>
+    </head>
+    <body class="bg-light">
+        <div class="container-fluid pt-2 pb-1 bg-primary text-white text-center">
+            <h1>VidDrop</h1>
+            <p>Videómegosztó és rendszerező projekt</p>
+        </div>
+        <div id="someAlert" class="alert alert-danger fade mb-0">
+            Muhhahhhahhhahha!
+        </div>
+        <div class="container-fluid">
+            <div class="row pl-1 pr-1">
+                <div class="col-md-4 pt-1 pb-2 rounded-sm" style="margin: auto;">
+                    <h4>Feladat megoldása</h4>
+                    <hr class="mt-1">
+                    <form class="needs-validation" action="/upload" enctype="multipart/form-data" method="post">
+                        <div class="form-group">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">#</span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="Feladat száma" name="number">
+                            </div>
+                            <div class="custom-control custom-switch mb-3">
+                                <input type="checkbox" class="custom-control-input" id="timeSwitch" name="time" checked>
+                                <label class="custom-control-label" for="timeSwitch">Jelenlegi idő mentése</label>
+                            </div>
+                            <div class="custom-control custom-switch mb-3">
+                                <input type="checkbox" class="custom-control-input" id="laterSwitch" name="later">
+                                <label class="custom-control-label" for="laterSwitch">Később oldom meg</label>
+                            </div>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="videoFile" name="videoFile">
+                                <label class="custom-file-label" for="videoFile">Videó kiválasztása</label>
+                              </div>
+                        </div>
+                        <div class="container-fluid text-center">
+                            <button id="aa" type="submit" class="btn btn-primary center-block">Megoldom!</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="pl-0 pb-1 text-center" style="width: calc(100% - 30px); position: fixed; bottom: 0;">
+                <kbd>
+                    <img src="img/Mozgekonyak.png" width="20" height="20" alt="MozgéKonyak">
+                    MozgéKonyak 2020
+                </kbd>
+            </div>
+        </div>
+    </body>
+</html>

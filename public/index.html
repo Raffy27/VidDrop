@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <title>VidDrop</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#0050a6">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        <script src="js/valid.js"></script>
+    </head>
+    <body class="bg-light">
+        <div class="container-fluid pt-2 pb-1 bg-primary text-white text-center">
+            <h1>VidDrop</h1>
+            <p>Videómegosztó és rendszerező projekt</p>
+        </div>
+        <div id="failedAlert" class="alert alert-danger fade mb-0">
+            Muhhahhhahhhahha!
+        </div>
+        <div class="container-fluid">
+            <div class="row pl-1 pr-1">
+                <div class="col-md-4 pt-1 pb-2 rounded-sm" style="margin: auto;">
+                    <h4>Bejelentkezés</h4>
+                    <hr class="mt-1">
+                    <form class="needs-validation" action="/login" method="post">
+                        <div class="form-group">
+                            <label for="user">Felhasználónév:</label>
+                            <input name="user" type="text" class="form-control mb-3" placeholder="Saját neved" id="user">
+                            <label for="pass">Jelszó:</label>
+                            <input name="pass" type="password" class="form-control" placeholder="Jelszavad" id="pass">
+                        </div>
+                        <div class="container-fluid text-center">
+                            <button type="submit" class="btn btn-primary center-block">Belépek</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="pl-0 pb-1 text-center" style="width: calc(100% - 30px); position: fixed; bottom: 0;">
+                <kbd>
+                    <img src="img/Mozgekonyak.png" width="20" height="20" alt="MozgéKonyak">
+                    MozgéKonyak 2020
+                </kbd>
+            </div>
+        </div>
+    </body>
+</html>

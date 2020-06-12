@@ -1,0 +1,43 @@
+doctype html
+html(lang="hu")
+  head
+    title VidDrop
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    meta(name="theme-color" content="#0050a6")
+    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css")
+    script(src="https://kit.fontawesome.com/e708636a93.js" crossorigin="anonymous")
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js")
+    script(src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js")
+  body.bg-light
+    .container-fluid.pt-2.pl-1.pr-1.pb-1.bg-primary.text-white.text-center
+      h1 VidDrop
+      p Videómegosztó és rendszerező projekt
+    .container-fluid
+      .row.mt-1
+        .col-md-4(style="margin: auto;")
+          canvas(id="vidChart" height="350")
+    script.
+        var ctx = document.getElementById('vidChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: #{users},
+                datasets: [{
+                    label: 'Megoldott feladatok',
+                    backgroundColor: #{colors},
+                    borderColor: '#ccc',
+                    borderWidth: 1,
+                    data: #{data}
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: 'Megoldott feladatok',
+                    fontSize: 16
+                }
+            }
+        });

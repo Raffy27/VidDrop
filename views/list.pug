@@ -1,0 +1,42 @@
+doctype html
+html(lang="hu")
+  head
+    title VidDrop
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    meta(name="theme-color" content="#0050a6")
+    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css")
+    script(src="https://kit.fontawesome.com/e708636a93.js" crossorigin="anonymous")
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js")
+  body.bg-light
+    .container-fluid.pt-2.pl-1.pr-1.pb-1.bg-primary.text-white.text-center
+      h1 VidDrop
+      p Videómegosztó és rendszerező projekt
+    .container-fluid
+      .row.mt-4
+        .col-md-4.text-center(style="margin: auto;")
+          button.btn.btn-primary.mt-1(onclick="showImages()")
+            i.fas.fa-image
+            span.ml-3 Képek
+          button.btn.btn-primary.ml-1.mt-1(onclick="showText()")
+            i.fas.fa-align-left
+            span.ml-3 Szöveg
+      .row.mt-4(id="imgContainer")
+        .col-md-8(style="margin: auto;")
+          each i in images
+            img(src="/uploads/"+i style="max-width:100%;")
+      .row.mt-4(id="txtContainer" style="display: none;")
+        .col-md-8(style="margin: auto;")
+          pre(style="background-color: lightgray;") #{text}
+    script.
+        function showImages(){
+            $('#txtContainer').hide();
+            $('#imgContainer').show();
+        }
+        function showText(){
+            $('#imgContainer').hide();
+            $('#txtContainer').show();
+        }
+    

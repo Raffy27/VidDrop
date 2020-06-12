@@ -1,0 +1,25 @@
+{
+  "name": "viddrop",
+  "version": "0.0.1",
+  "description": "Egy videómegosztó és rendszerező projekt",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "video",
+    "sharing",
+    "share",
+    "organize"
+  ],
+  "author": "Raffy",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "chalk": "^3.0.0",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.1.6",
+    "express-session": "^1.17.0",
+    "pug": "^2.0.4",
+    "sqlite3": "^4.1.1"
+  }
+}

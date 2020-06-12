@@ -1,0 +1,80 @@
+doctype html
+html(lang="hu")
+  head
+    title VidDrop
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    meta(name="theme-color" content="#0050a6")
+    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css")
+    script(src="https://kit.fontawesome.com/e708636a93.js" crossorigin="anonymous")
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js")
+  body.bg-light
+    .modal.fade(role="dialog" id="searchModal")
+      .modal-dialog
+        .modal-content
+          .modal-header
+            h5.modal-title Ugrás egy feladathoz
+            button.close(type="button" data-dismiss="modal") &times;
+          .modal-body
+            .form-group
+              input.form-control(type="text" id="searchText" placeholder="Feladatszám vagy kulcsszó")
+          .modal-footer
+            button.btn.btn-primary(type="button" data-dismiss="modal" onclick="jumpTo()") Ugrás
+    .container-fluid.pt-2.pl-1.pr-1.pb-1.bg-primary.text-white.text-center
+      h1 VidDrop
+      p Videómegosztó és rendszerező projekt
+    .container-fluid
+      .row.mt-2
+        .col-md-4(style="margin: auto;")
+          p.mt-2 Teljesített feladatok: #{stats.solved} / #{stats.total}
+          .progress
+            .progress-bar(style="width: "+stats.precent+"%") #{stats.precent}%
+      .row.mt-4
+        .col-md-4.text-center(style="margin: auto;")
+          a(href="/list")
+            button.btn.btn-primary.mt-1(type="button") Feladatok
+          a(href="/upload.html")
+            button.btn.btn-primary.ml-1.mt-1(type="button") Megoldok egyet!
+          a(href="javascript:window.location.reload()")
+            button.btn.btn-primary.ml-1.mt-1
+              i.fas.fa-sync
+          a(href="javascript:openModal()")
+            button.btn.btn-primary.ml-1.mt-1
+              i.fas.fa-search
+          a(href="/stats")
+            button.btn.btn-primary.ml-1.mt-1(type="button")
+              i.fas.fa-chart-pie
+          a(href="/logout")
+            button.btn.btn-danger.ml-1.mt-1(type="button")
+              i.fas.fa-sign-out-alt
+      .row.mt-4
+        .col-md-4(style="margin: auto;")
+          table.table
+            thead.thead-dark
+              tr
+                th
+                th Megoldók
+                th Időpont
+            tbody
+              each v in videos
+                tr(class=v.solves?(v.date=="Később"?"table-warning":"table-primary"):"table-danger")
+                  td=v.id
+                  td=v.solves?v.solves:"Nincs"
+                  td=v.date?v.date:"Nincs"
+      .pl-0.pb-1.text-center(style="width: calc(100% - 30px); position: fixed; bottom: 0;")
+        kbd
+          img(src="img/Mozgekonyak.png" width="20" height="20" alt="MozgéKonyak")
+          |  MozgéKonyak 2020 - #{user.name}
+    script.
+      function openModal(){
+        $("#searchModal").modal();
+      }
+      function jumpTo(){
+        var e = $('td:contains('+$('#searchText').val()+')');
+        if(!e) return;
+        $('html, body').animate({
+            scrollTop: (e.offset().top)
+        }, 500);
+      }
